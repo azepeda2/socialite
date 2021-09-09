@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "40236974837",
+    "project_id": "flutter-instagram-2b6ef",
+    "storage_bucket": "flutter-instagram-2b6ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40236974837:android:b8309443757571227ffbbc",
+        "android_client_info": {
+          "package_name": "com.alejandrozepeda.socialmedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40236974837-gdjp1ri6vd89qa6kjk4i33crsnmhmduj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHROCV_7zdUh9I3HjjX789HPxhT4KbRaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40236974837-gdjp1ri6vd89qa6kjk4i33crsnmhmduj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "40236974837-set5uim5qopvloaum54sjdas5vbp8obq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alejandrozepeda.socialmedia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
