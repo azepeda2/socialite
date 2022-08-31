@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:html';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -14,6 +15,8 @@ part 'profile_state.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final UserRepository _userRepository;
   final AuthBloc _authBloc;
+
+  StreamSubscription<List<Future<Post>>> _postSubscription;
   
   ProfileBloc({
     @required UserRepository userRepository, 
@@ -22,12 +25,19 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         _authBloc = authBloc,
         super(ProfileState.initial());
 
+  Future<void> close() {
+    _postSubscription.cancel();
+    return super.close();
+  }
+
   @override
   Stream<ProfileState> mapEventToState(
     ProfileEvent event, 
   ) async* {
     if (event is ProfileLoadUser) {
       yield* _mapProfileLoadUserToState(event);
+    } else if (event is ProfileToggleGridView) {
+      yield* _mapProfileToggleGridViewToState(event);
     }
   }
 
@@ -50,5 +60,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         failure: const Failure(message: "We were unable to load this profile."),
       );
     }
+  }
+
+  Stream<ProfileState> _mapProfileToggleGridViewToState(ProfileToggleGridView event) async* {
+    yield state.copyWith(isGridView: event.isGridView);
   }
 }
